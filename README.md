@@ -38,15 +38,15 @@ In our html files we are working with style, format, and a very cool navbar (thi
 
 5) PANDAS: MERGE/TABLES/GRAPHS
 
-We used Pandas a lot. We used it to merge the files (previously mentioned) and then to create the graphs (10 displayed in the by county section in Analysis; 10 displayed in the by year section in Analysis). We customized the format in our graphs by creating a style of colors. The steps that we took to develop the graphs and tables used in our website (Data/data1 and Data/data2) can be found in the file views of the App "Data". Another point mentioning is that our tables and graphs are very pretty (and that took some HOURS). 
+We used Pandas a lot. We used it to merge the files (previously mentioned) and then to create the graphs (10 displayed in the by county section in Analysis; 10 displayed in the by year section in Analysis). You can see them in Age Group.ipynb. We customized the format in our graphs by creating a style of colors. The steps that we took to develop the graphs and tables used in our website (Data/data1 and Data/data2) can be found in the file views of the App "Data". Another point mentioning is that our tables and graphs are very pretty (and that took some HOURS). 
 
 6) BONUS - SEXY, OR NOT, REGRESSION TIME
 
-
+We did a regression using our data in Pandas. You can find the steps in the file Regression.ipynb
 
 7) CONCLUSION
 
-This was hard. VERY. We particularly enjoyed using Pandas and playing with the html skeletons to get a professional/pretty format and information. However there were a lot of things that we didn't know how to do. Our biggest problems were the navbar, making the forms work and connecting the form with our graphs. We spent almost 50 hours working on this final project. We used stackflow, tutorials you referenced in the slides and even youtube videos to work out things. Still, it was very embarrasing when we took these concerns to you and you were able to solve them in 2 minutes or less. Thus, this course was succesfull in introducing us to the "art" of programming but we still have a long way to go if we want to develop a relationship as close as what you have with Princess Duck. 
+This was hard. VERY. We particularly enjoyed using Pandas and playing with the html skeletons to get a professional/pretty format and information. However there were a lot of things that we didn't know how to do. Our biggest problems were the navbar, making the forms work and connecting the form with our graphs. We spent almost 50 hours working on this final project. We used stackflow (we now can understand discussions YEIII), tutorials you referenced in the slides and even youtube videos to work out things. Still, it was very embarrasing when we took these concerns to you and you were able to solve them in 2 minutes or less. Thus, this course was succesfull in introducing us to the "art" of programming but we still have a long way to go if we want to develop a relationship as close as what you have with Princess Duck. 
 
 Thank you for spending so much of your time in hearing and solving our freak-outs!
 

@@ -1,19 +1,17 @@
-<!-- This html template contains the information for the ANALYSIS-CRIME webpage -->
-
-
-<!-- Getting started with basic things-->
 <!DOCTYPE html>
 <html lang="en">
 <body style="background-color:#FDF2E9">
 <head>
   <title>Suicide Prevention</title>
+
 <FONT FACE="modern">
 
 
-<!-- Working now in style and format for webpage and navbar SPECIALLY-->
+
 <style>
 * { font-family: 'Open Sans', sans-serif; }
 body {margin: 0% 10%;}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -21,9 +19,11 @@ ul {
     overflow: hidden;
     background-color: #E67E22;
 }
+
 li {
     float: left;
 }
+
 li a, .dropbtn {
     display: inline-block;
     color: white;
@@ -31,12 +31,15 @@ li a, .dropbtn {
     padding: 14px 16px;
     text-decoration: none;
 }
+
 li a:hover, .dropdown:hover .dropbtn {
     background-color: #7D3C98;
 }
+
 li.dropdown {
     display: inline-block;
 }
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -44,6 +47,7 @@ li.dropdown {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
+
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
@@ -51,7 +55,9 @@ li.dropdown {
     display: block;
     text-align: left;
 }
+
 .dropdown-content a:hover {background-color: #F4ECF7}
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
@@ -69,10 +75,6 @@ h3 {
 }
 </style>
 </head>
-  
-  
-
-<!-- Specifying to navbar how to connect to the rest of the content-->  
 <body>
     <ul class="navbar">
       <li><a href="/home">Home</a></li>
@@ -106,20 +108,20 @@ h3 {
   </ul>
 
 
-  
-<!-- Adding content to webpage-->
 <p>
 <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQGdsbqDHaa0su4CLlsdh_B_YICPfijJdMgpHu2rSAlIzOteJVF3A" alt="Yummy" width="30%" float="left" width="200px">
 <p>
 <h1 id="analysis"><b>Connection with Crime</b></h1>
 <p>
-
+  We run a regression of suicides on crime controlling for year and the income (expressed in log).
 <p>
 
-<p>
+  The coefficients for all the variables are statistically significant at a 1% level.
+  For both crime and income there is a negative relation with the percentage of suicides.
+  It's interesting to notice that the coefficient in income suggests that a 1% increment in income would decrease
+  the percentage of suicides in -0.002 units.
 
-<p>
+</p>
 
-<p>
 
-<p>
+<img src= 'http://127.0.0.1:8000/Analysis/crime_reg/' width="60%" float ="center" alt = "regression" >

@@ -96,4 +96,4 @@ INC_CRIME_DEATH_SUICIDE = pd.merge(INC_CRIME_DEATH, SUICIDE_COUNTY_1, on =['Year
 
 ### D. INC_CRIME_DEATH_SUICIDE WITH POPULATION
 MASTER1 = pd.merge(INC_CRIME_DEATH_SUICIDE, POP, on=['Year', 'County'])
-MASTER1.to_csv('MASTER.csv', sep='\,')
+MASTER1.to_csv('MASTER1.csv', sep='\,')

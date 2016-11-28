@@ -8,6 +8,7 @@ urlpatterns = [
 
     url(r'^$', views.HomeView.as_view(), name='analysis'),
     url(r'^crime/$', views.crime),
+    url(r'^crime_reg/$', views.crime_reg),
     url(r'^admin/', include(admin.site.urls)),
 
 ]

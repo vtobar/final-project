@@ -11,6 +11,7 @@ from django.views.generic.base import TemplateView
 import seaborn as sns
 from io import BytesIO
 
+
 class HomeView(TemplateView):
 
     template_name = 'baseny.html'
@@ -137,38 +138,6 @@ def data1(request, year = 'r'):
 
     return render(request, 'data1.html', params)
 
-
-def data2(request):
-
-    filename = join(settings.STATIC_ROOT, 'Data/SUICIDE.csv')
-
-
-    age_group = pd.read_csv(filename)
-
-
-    year = int(request.GET.get('year', 2003))
-    age_group = age_group[age_group['Year'] == year]
-
-    pretable = age_group[age_group['Category'] == 'Age_Group']
-    tablec = pretable[pretable['Category Value'] != 'Total']
-
-    if not tablec.size: return HttpResponse('No such year')
-
-    table2 = tablec.to_html(float_format = "%.3f", classes = "table table-striped", index = False)
-    table2 = table2.replace('border="1"','border="0"')
-    table2 = table2.replace('style="text-align: right;"', "") # control this in css, not pandas.
-
-    params = {
-               'form_action' : reverse_lazy('Data:data2'),
-               'form_method' : 'get',
-               'form': YearsForm({'year': year}),
-               'html_table': table2,
-               'pic_source' : reverse_lazy(("Data:plot_data2"),kwargs = { 'year' : year})
-               }
-
-    return render(request, 'data2.html', params)
-
-
 def display_pic_data2(request):
 
     year = int(request.GET.get('year', 2005))
@@ -182,20 +151,33 @@ def display_pic_data2(request):
 
     return render(request, 'view_pic.html', params)
 
-def plot_data2(request, year = 2011):
+
+import pandas as pd
+
+# these will be useful later
+import numpy  as np
+from matplotlib import pyplot as plt
+import seaborn as sns
+
+def plot_data2(request, year = 2003):
 
     filename = join(settings.STATIC_ROOT, 'Data/SUICIDE.csv')
 
-    suicide = pd.read_csv(filename)
+    age_group = pd.read_csv(filename)
 
-    suicide = suicide[suicide['Year'] == int(year)]
+    age_group = age_group[age_group['Year'] == int(year)]
+    pretable = age_group[age_group['Category'] == 'Age_Group']
+    table = pretable[pretable['Value'] != 'Total']
 
-    if not suicide.size: return HttpResponse("No such year!")
+    if not table.size: return HttpResponse("No such year!")
+
 
     plt.figure()
 
-    age_group = table[table["Year"] == 2003]
-    age_group__graph= age_group.sort_values(by= "Suicide Deaths", ascending = False)
+
+    #age_group = table[table["Year"] == 2003]
+    age_group_graph= table.sort_values(by= "Suicide Deaths", ascending = False)
+
 
     sns.set(style="ticks")
 
@@ -221,7 +203,6 @@ def plot_data2(request, year = 2011):
     g.set_ylabel("Number of Suicides",size = 26,color="b",alpha=0.5)
     # Set the ticklabel size and color of the graph from here
     g.tick_params(labelsize=12,labelcolor="black")
-
       # write bytes instead of file.
     figfile = BytesIO()
 
@@ -233,19 +214,39 @@ def plot_data2(request, year = 2011):
     figfile.seek(0) # rewind to beginning of file
     return HttpResponse(figfile.read(), content_type="image/png")
 
+def data2(request, year = 'r'):
 
-def display_pic_data2(request):
+    filename = join(settings.STATIC_ROOT, 'Data/SUICIDE.csv')
 
-    year = int(request.GET.get('year', 2005))
+    age_group = pd.read_csv(filename)
 
-    params = { 'title': year,
-              'form_action' : reverse_lazy('Data:data1'),
-              'form_method' : 'get',
-              'form': YearsForm({'year': year}),
-              'pic_source' : reverse_lazy("Data:plot_data1", kwargs = { 'c' : year})
-              }
+    year = int(request.GET.get('year', 2003))
+    age_group = age_group[age_group['Year'] == int(year)]
 
-    return render(request, 'view_pic.html', params)
+    pretable = age_group[age_group['Category'] == 'Age_Group']
+    tablec = pretable[pretable['Value'] != 'Total']
+
+    if not tablec.size: return HttpResponse('No such year')
+
+    table2 = tablec.to_html(float_format = "%.3f", classes = "table table-striped", index = False)
+    table2 = table2.replace('border="1"','border="0"')
+    table2 = table2.replace('style="text-align: right;"', "") # control this in css, not pandas.
+
+    params = {
+               'form_action' : reverse_lazy('Data:data2'),
+               'form_method' : 'get',
+               'form': YearsForm({'year': year}),
+               'html_table': table2,
+               'pic_source' : reverse_lazy(("Data:plot_data2"),kwargs = { 'year' : year})
+               }
+
+    return render(request, 'data2.html', params)
+
+
+
+
+
+
 
 
 
